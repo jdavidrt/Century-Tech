@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Century Tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-2 px-6">
+            <img src="Century Logo.jpg" alt="Logo Inteco"
+                class="h-16 transition-transform duration-300 hover:scale-105">
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-4">
+                <a href="Catálogo de productos.pdf" download
+                    class="px-3 py-1 border border-gray-700 rounded-full text-gray-700 hover:bg-yellow-500 hover:text-white transition-all duration-300">Catálogo</a>
+                <a href="#"
+                    class="px-3 py-1 border border-gray-700 rounded-full text-gray-700 hover:bg-yellow-500 hover:text-white transition-all duration-300">Nuestra
+                    Sede</a>
+                <a href="#" onclick="openModal()"
+                    class="px-3 py-1 border border-gray-700 rounded-full text-gray-700 hover:bg-yellow-500 hover:text-white transition-all duration-300">Contáctanos</a>
+            </nav>
+
+            <!-- Cart Icon -->
+            <div class="flex items-center space-x-2">
+                <div class="relative cursor-pointer">
+                    <img src="cart-icon.png" alt="Carrito"
+                        class="h-5 transition-transform duration-300 hover:scale-110">
+                </div>
+
+                <!-- Hamburger Menu Button -->
+                <button id="menu-btn" class="md:hidden focus:outline-none">
+                    <div class="w-6 h-5 flex flex-col justify-between transition-transform duration-300">
+                        <span id="bar1"
+                            class="block w-6 h-0.5 bg-gray-700 rounded transition-transform duration-300"></span>
+                        <span id="bar2"
+                            class="block w-6 h-0.5 bg-gray-700 rounded transition-opacity duration-300"></span>
+                        <span id="bar3"
+                            class="block w-6 h-0.5 bg-gray-700 rounded transition-transform duration-300"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="hidden flex flex-col space-y-3 p-3 text-center bg-white shadow-md md:hidden">
+            <a href="Catálogo de productos.pdf" download
+                class="px-3 py-1 border border-gray-700 rounded-full text-gray-700 hover:bg-yellow-500 hover:text-white transition-all duration-300">Catálogo</a>
+            <a href="#"
+                class="px-3 py-1 border border-gray-700 rounded-full text-gray-700 hover:bg-yellow-500 hover:text-white transition-all duration-300">Nuestra
+                Sede</a>
+            <a href="#" onclick="openModal()"
+                class="px-3 py-1 border border-gray-700 rounded-full text-gray-700 hover:bg-yellow-500 hover:text-white transition-all duration-300">Contáctanos</a>
+        </nav>
+    </header>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+
+            // Animación del botón hamburguesa
+            bar1.classList.toggle('rotate-45');
+            bar2.classList.toggle('opacity-0');
+            bar3.classList.toggle('-rotate-45');
+        });
+    </script>
+
+
+
+
+
+    <!-- Banner Principal -->
+    <section class="relative bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center py-10 px-6">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-3xl font-bold text-yellow-600">Tecnología Para Todos</h1>
+                <h2 class="text-4xl font-extrabold text-black-900">SIEMPRE DISPONIBLE</h2>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="banner.jpg" alt="Sistema POS" class="max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="container mx-auto py-20 px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+            <div class="bg-white shadow-md p-4 text-center rounded-lg">
+                <h3 class="text-lg font-semibold text-yellow-600">PORTÁTILES PARA EL HOGAR</h3>
+            </div>
+            <div class="bg-white shadow-md p-4 text-center rounded-lg">
+                <h3 class="text-lg font-semibold text-black-600">PORTÁTILES EMPRESARIALES</h3>
+            </div>
+            <div class="bg-white shadow-md p-4 text-center rounded-lg">
+                <h3 class="text-lg font-semibold text-yellow-600">PORTÁTILES GAMER</h3>
+            </div>
+            <div class="bg-white shadow-md p-4 text-center rounded-lg">
+                <h3 class="text-lg font-semibold text-black-600">PORTÁTILES EMPRESARIALES Y CORPORATIVOS</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Contacto -->
+    <div id="contactModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 class="text-xl font-semibold mb-4">Contáctanos</h2>
+            <p>Giovanny Muñoz</p>
+            <p>📞 <a href="https://wa.me/573058184396" target="_blank" class="text-green-500">3058184396</a></p>
+            <p>📞 <a href="https://wa.me/573167998956" target="_blank" class="text-green-500">3167998956</a></p>
+            <button onclick="closeModal()" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">&copy; 2025 Century Tech - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+        }
+    </script>
+
+</body>
+
+</html>
